@@ -20,7 +20,7 @@ app.use(express.static('public'))
 
 
 app.get('/', (req, res) => {
-    res.send('Welcome to Happys....!!');
+    res.send('Welcome to HAPPYS....!!');
 });
 
 
