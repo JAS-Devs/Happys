@@ -1,32 +1,23 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
+mongoose.connect("mongodb://127.0.0.1:27017/Happys")
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("MongoDB connection error:", error);
+  });
 
-// mongoose.connect("", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
-// .then(() => {
-//   console.log("Connected to MongoDB");
-// })
-// .catch((error) => {
-//   console.error("MongoDB connection error:", error);
-// });
+const express = require("express");
 
-const express = require("express")
-
-const app=express()
+const app = express()
 
 app.use(express.static('public'))
 
-
-app.get('/', (req, res) => {
-    res.send('Welcome to HAPPYS....!!');
-});
-
-
-
-
+// for user routes
+const userRoute = require('./routes/userRoute')
+app.use('/',userRoute)
 
 app.listen(5000,function(){
-    console.log("server is running...")
-});
+    console.log("Server is running in 5000....")
+})
