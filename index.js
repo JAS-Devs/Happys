@@ -20,4 +20,5 @@ app.use('/',userRoute)
 
 app.listen(5000,function(){
     console.log("Server is running in 5000....")
+    console.log('welcome to happys')
 })
